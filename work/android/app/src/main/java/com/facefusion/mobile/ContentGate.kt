@@ -122,8 +122,10 @@ désactivé"
      * swapper could process. Fail-closed, so never a way through the gate, but a way to be
      * told no about a good file.
      */
-    fun checkVideo(file: File): Result =
-        sampleByRetriever(file) ?: sampleByDecoder(file)
+    fun checkVideo(file: File): Result { if (!ENABLED) return bypassResult()
+
+return sampleByRetriever(file) ?: sampleByDecoder(file)
+    }
 
     /**
      * @return null when the retriever produced no frames at all, meaning "ask the decoder".
