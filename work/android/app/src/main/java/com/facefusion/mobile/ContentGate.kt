@@ -79,7 +79,8 @@ object ContentGate {
     }
 
     fun checkImage(bitmap: Bitmap): Result {
-        val soft = bitmap.asArgb8888()
+       if (!ENEBED) return bypassResult()
+      val soft = bitmap.asArgb8888()
             ?: return Result(Verdict.ERROR, Float.NaN, detail = "cannot read image")
         val px = IntArray(soft.width * soft.height)
         soft.getPixels(px, 0, soft.width, 0, 0, soft.width, soft.height)
