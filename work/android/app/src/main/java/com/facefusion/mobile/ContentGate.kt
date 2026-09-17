@@ -26,7 +26,21 @@ import java.io.File
  * everything upstream of it believes the content was checked.
  */
 object ContentGate {
+private fun bypassResult() = Result(
 
+verdict = Verdict.ALLOW,
+
+score = Of,
+
+sampled = 0,
+
+flagged = 0,
+
+detail = "filtre de contenu
+
+désactivé"
+
+)
     /** content_analyser.py:detect_with_nsfw_2 -- flagged above this. */
     const val THRESHOLD = 0.25f
 
