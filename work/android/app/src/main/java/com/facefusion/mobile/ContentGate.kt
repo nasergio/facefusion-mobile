@@ -26,7 +26,7 @@ import java.io.File
  * everything upstream of it believes the content was checked.
  */
 object ContentGate {
-
+    const val ENABLED = false
     /** content_analyser.py:detect_with_nsfw_2 -- flagged above this. */
     const val THRESHOLD = 0.25f
 
